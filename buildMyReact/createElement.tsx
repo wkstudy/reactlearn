@@ -29,10 +29,16 @@ const createElement = (type, children, ...props) => {
 }
 
 const render = (element , container) => {
-  const dom = document.createElement(element);
+  const dom = element.type === 'TEXT_ELEMENT' ? document.createTextNode(element.children) :  document.createElement(element);
+
+  //  子元素重复着一操作
   element.props.children.map(item => {
     render(item, dom);
   })
+  //  把属性加到dom上
+  const isProperty = key => key !== 'children';
+  Object.keys(element.props).filter(isProperty).forEach(item => dom[item] = element.props[item])
+
   container.appendChild(dom);
 }
 
@@ -52,4 +58,4 @@ const element = (
 )
 
 const container = document.getElementById('root');
-React.render(element, container);
+MyReact.render(element, container);
