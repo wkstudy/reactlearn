@@ -13,3 +13,12 @@ render  了解了
 * 背景： render的内容太多的话会占据主线程太多时间，阻塞用户输入/动画等时间等事件
 * 方案：　拆分work为小的units,每次有units要执行的时候就interrupt rendering
 > So we are going to break the work into small units, and after we finish each unit we’ll let the browser interrupt the rendering if there’s anything else that needs to be done.
+
+### 4 Fibers
+### 5 Render and Commit Phases
+### 6 Reconciliation
+### 7 function component
+### 8 hooks
+
+后面的就是大致看了看，不是很跟得上了，挺难
+
